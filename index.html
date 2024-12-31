@@ -430,7 +430,7 @@
         <div id="stiker1" class="scale0 stiker">
           <img src="glg.gif" />
         </div>
-        <h1 id="teks1" class="scale0 itim" style="font-size: 20px">
+        <h1 id="teks1" class="scale0m" style="font-size: 20px">
           Happy New Year Cantik!<br />I Have Something For You 🫶<br /><br />
           ⇒ ⇒ ⇒ ⇒ ⇒
         </h1>
@@ -441,7 +441,7 @@
         <div id="stiker2" class="scale0 stiker">
           <img src="emh.gif" />
         </div>
-        <h1 id="teks2" class="scale0 itim" style="font-size: 20px; margin-left: 10px; margin-right: 10px;">
+        <h1 id="teks2" class="scale0" style="font-size: 20px; margin-left: 10px; margin-right: 10px;">
           Gak terasa yaa udah memasuki awal tahun 2025 ^^<br />
           Aku ada sesuatu nih, dibaca baik-baik yaa hehe..
           <br /><br />
@@ -456,7 +456,7 @@
         </div>
         <!-- Konten teks -->
         <div id="scroll-container" class="blocktext">
-          <p id="teks3" class="itim" style="font-size: 16px; margin-left: 40px">
+          <p id="teks3" style="font-size: 16px; margin-left: 40px">
             Gak terasa yaa banyak banget memori dan kenangan yang udah kita bangun selama beberapa tahun ini.<br /><br />Hidupku sangat jauh berbeda dan lebih berwarna sejak kita bertemu kembali dan banyak menghabiskan waktu bersama-sama.<br /><br />Walaupun kadang-kadang aku atau kamu masih suka bikin kesel satu sama lain hehe..<br /><br />Mau bagaimanapun Kamu dan Aku masih sama-sama mengedepankan ego kita masing-masing.<br /><br />Dan mungkin malah aku yg lebih sering egois dan kamu terlalu banyak ngalah buat aku 🥲
           </p>
         </div>
@@ -464,12 +464,12 @@
       <!-- Slide 4 -->
       <div class="swiper-slide">
         <!-- Stiker dan teks -->
-        <div id="stiker3" class="scale0 stiker sembunyi">
+        <div id="stiker4" class="scale0 stiker sembunyi">
           <img src="kdp2.gif" />
         </div>
         <!-- Konten teks -->
         <div id="scroll-container" class="blocktext">
-          <p id="teks4" class="itim" style="font-size: 16px; margin-left: 40px">
+          <p id="teks4" style="font-size: 16px; margin-left: 40px">
             Walaupun saat ini kita udah gk punya hubungan status sebagai pasangan...<br /><br />Tapi kamu tetap jadi wanita paling spesial dihidupku 🥰<br /><br />Kamu gaakan bisa tergantikan oleh siapapun, sampai kapanpun...<br /><br />Tapi apapun itu aku mau kita tetap berhubungan, kalau kamu butuh aku, aku akan selalu ada buat kamu.<br /><br />Kedepannya mungkin akan lebih berat bagi kita menjalani hidup, dengan beban masing-masing.<br /><br />Tapi percayalah, aku akan selalu ada disamping kamu untuk terus memeluk kamu disaat kamu butuh.<br /><br />Aku akan selalu hadir disamping kamu disaat kamu butuh penyemangat.<br /><br />Aku akan tetap berdiri dibelakang kamu sampai kamu bahagia.<br /><br />Itu Janjiku! Jangan sungkan untuk menagihnya padaku 😚
           </p>
         </div>
@@ -488,6 +488,7 @@
   <script>
     // Inisialisasi variabel dan konstanta
     var teksSekarang = 1;
+    var teksSekarang2 = 1;
     const body = document.querySelector("body");
     audio = new Audio('' + linkmp3.src); // Membuat objek audio
 
@@ -509,10 +510,20 @@
           setTimeout(function () {
             teksScale.classList.add("scale1");
             stikerScale.classList.add("scale1");
-
+            
             // Memanggil fungsi untuk animasi khusus pada slide tertentu
             if (teksSekarang == 3) { katanimasi() }
-            else { katanimasi2() }
+          }, 50);
+          
+          teksSekarang2++;
+          teksScale2 = document.querySelector('#teks' + teksSekarang2);
+          stikerScale2 = document.querySelector('#stiker' + teksSekarang2);
+          setTimeout(function () {
+            teksScale2.classList.add("scale1");
+            stikerScale2.classList.add("scale1");
+
+            // Memanggil fungsi untuk animasi khusus pada slide tertentu
+            if (teksSekarang2 == 4) { katanimasi2() }
           }, 50);
         },
       },
@@ -532,7 +543,7 @@
         strings: ["" + teks],
         startDelay: 200,
         speed: 50,
-        cursor: false,
+        cursor: true,
       }).go();
     }
 
@@ -542,9 +553,9 @@
     function katanimasi2() {
       new TypeIt("#teks4", {
         strings: ["" + teks2],
-        startDelay: 30000,
+        startDelay: 200,
         speed: 50,
-        cursor: false,
+        cursor: true,
         afterComplete: function () {
           clearInterval(scrollInterval);
           teks4.innerHTML = teks2;
